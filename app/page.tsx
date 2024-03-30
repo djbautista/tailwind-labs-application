@@ -1,18 +1,38 @@
+import classNames from 'classnames';
+import { Silkscreen } from 'next/font/google';
 import Image from 'next/image';
 import { Send, Terminal } from 'react-feather';
 
 import Button from '@/components/Button';
-
-import { Silkscreen } from 'next/font/google';
-import classNames from 'classnames';
+import Card from '@/components/Card';
+import { twMerge } from 'tailwind-merge';
 
 const silkscreen = Silkscreen({ weight: ['700'], subsets: ['latin'] });
+
+const Preface = ({ className }: React.HTMLAttributes<HTMLDivElement>) => (
+  <Card
+    className={twMerge(
+      ['flex', 'w-fit', 'flex-col', 'gap-2', 'text-neutral-50'],
+      className,
+    )}
+    variant="secondary"
+  >
+    <p className="text-md text-italic max-w-[500px] leading-6">
+      I{`'`}m applying to{' '}
+      <span className="text-primary-500">Tailwind Labs.</span> because I truly
+      feel in my heart that there{`'`}s a spot for me here, a space where I
+      could share my creativity and quick-thinking, fueled by the passion and
+      unique skills I{`'`}ve honed so far.
+    </p>
+    <p className="pr-3 text-right">— David B.</p>
+  </Card>
+);
 
 export default function Home() {
   return (
     <main className="bg-neutral flex min-h-screen p-12">
       <section className="flex h-fit w-full flex-wrap justify-evenly gap-12">
-        <div className="flex flex-col gap-8 text-neutral-50 lg:gap-12 lg:py-12">
+        <div className="flex flex-col gap-8 text-neutral-50 lg:gap-12 lg:py-8">
           <div className="w-full">
             <h3 className="mb-2 text-2xl lg:mb-4 lg:text-4xl xl:mb-6 xl:text-5xl">
               {"Hi, I'm"}
@@ -26,7 +46,7 @@ export default function Home() {
               DAVID BAUTISTA
             </h1>
             <h2 className="text-xl font-bold lg:text-2xl xl:text-3xl">
-              STAFF SOFTWARE ENGINEER
+              YOUR NEXT STAFF SOFTWARE ENGINEER
             </h2>
           </div>
           <div className="flex gap-8">
@@ -39,12 +59,10 @@ export default function Home() {
               <Terminal />
             </Button>
           </div>
+          <Preface className="hidden lg:flex" />
         </div>
         <div className="relative h-fit w-full max-w-lg lg:flex-1 xl:max-w-xl">
-          <div
-            id="dot-behind-that-will-have-the-shadow-behind-the-image"
-            className="neon-secondary absolute bottom-20 left-20 right-20 top-20 z-0 rounded-full bg-neutral-900"
-          ></div>
+          <div className="neon-secondary absolute bottom-20 left-20 right-20 top-20 z-0 rounded-full bg-neutral-900"></div>
           <Image
             className="relative z-10 w-full object-contain"
             src="/myself.png"
@@ -53,6 +71,7 @@ export default function Home() {
             height="1024"
           />
         </div>
+        <Preface className="block lg:hidden" />
       </section>
     </main>
   );
