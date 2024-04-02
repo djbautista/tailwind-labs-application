@@ -4,14 +4,242 @@ import Image from 'next/image';
 import { Send, Terminal } from 'react-feather';
 
 import Button from '@/components/Button';
-import Card from '@/components/Card';
+import Card, { CardColor } from '@/components/Card';
 import { twMerge } from 'tailwind-merge';
+import {
+  FaAws,
+  FaDocker,
+  FaNodeJs,
+  FaReact,
+  FaRust,
+  FaVuejs,
+} from 'react-icons/fa';
+import {
+  SiAngular,
+  SiD3Dotjs,
+  SiFigma,
+  SiGraphql,
+  SiHeadlessui,
+  SiJavascript,
+  SiMongodb,
+  SiMysql,
+  SiScala,
+  SiTailwindcss,
+  SiTypescript,
+} from 'react-icons/si';
 
 const silkscreen = Silkscreen({ weight: ['700'], subsets: ['latin'] });
 
 interface TailwindnizerProps extends React.HTMLAttributes<HTMLSpanElement> {
   variant?: 'primary' | 'secondary';
 }
+
+const mainSkills = [
+  {
+    title: 'Front-End',
+    content: (
+      <span>
+        +7 years building web applications. I started with vanilla JavaScript,
+        then jQuery, then Angular CLI, then React, then Vue with Nuxt, and
+        finally got back to React with Next.js.
+      </span>
+    ),
+  },
+  {
+    title: 'Back-End',
+    content: (
+      <span>
+        +8 years building back-end services with Node.js, Express, and MongoDB.
+        But my beginnings were with Java, Spring Boot, and Oracle DB. From 3
+        years ago, I specialized in building apps in Scala with Play Framework,
+        Node.js with NestJS, and Rust with Rocket.
+      </span>
+    ),
+  },
+  {
+    title: 'DevOps',
+    content: (
+      <span>
+        In my previous job at Torre.ai, as a Full-Stack Engineer, I was in
+        charge of the deployment of entire microservices and micro-frontends
+        with Docker, Kubernetes, and AWS ECS. I also have experience with CI/CD
+        pipelines with GitHub Actions, and AWS Code Pipelines. Lastly, I had the
+        opportunity to work with Terraform to automate the infrastructure
+        deployment of new environments, and work with other AWS services to
+        monitor and debug (CloudWatch) complex issues in production.
+      </span>
+    ),
+  },
+  {
+    title: 'SEO & Growth',
+    content: (
+      <span>
+        During my journey at Torre.ai, I was leading the User Generated Growth
+        team by 2 years. I was in charge of the SEO optimization of the entire
+        platform, and the performance tuning of the web application, including
+        Meta SEO tags, Open Graph tags, and Twitter Cards. Everything there
+        stored and managed with Nuxt.js to optimize the SSR of each page. I led
+        also the indexing system of the new profiles, job postings, and new
+        content in general.
+      </span>
+    ),
+  },
+];
+
+const hardSkills = [
+  {
+    name: 'JavaScript',
+    icon: <SiJavascript />,
+    type: 'Front-End',
+    color: 'yellow',
+  },
+  {
+    name: 'TypeScript',
+    icon: <SiTypescript />,
+    type: 'Front-End',
+    color: 'blue',
+  },
+  {
+    name: 'React',
+    icon: <FaReact />,
+    type: 'Front-End',
+    color: 'sky',
+  },
+  {
+    name: 'Vue',
+    icon: <FaVuejs />,
+    type: 'Front-End',
+    color: 'green',
+  },
+  {
+    name: 'Angular',
+    icon: <SiAngular />,
+    type: 'Front-End',
+    color: 'red',
+  },
+  {
+    name: 'Node.js',
+    icon: <FaNodeJs />,
+    type: 'Back-End',
+    color: 'black',
+  },
+  {
+    name: 'Rust',
+    icon: <FaRust />,
+    type: 'Back-End',
+    color: 'red',
+  },
+  {
+    name: 'GraphQL',
+    icon: <SiGraphql />,
+    type: 'Back-End',
+    color: 'pink',
+  },
+  {
+    name: 'Scala',
+    icon: <SiScala />,
+    type: 'Back-End',
+    color: 'red',
+  },
+  {
+    name: 'Docker',
+    icon: <FaDocker />,
+    type: 'DevOps',
+    color: 'blue',
+  },
+  {
+    name: 'MongoDB',
+    icon: <SiMongodb />,
+    type: 'Back-End',
+    color: 'green',
+  },
+  {
+    name: 'MySQL',
+    icon: <SiMysql />,
+    type: 'Back-End',
+    color: 'orange',
+  },
+  {
+    name: 'AWS',
+    icon: <FaAws />,
+    type: 'DevOps',
+    color: 'yellow',
+  },
+  {
+    name: 'Figma',
+    icon: <SiFigma />,
+    type: 'Front-End',
+    color: 'pink',
+  },
+  {
+    name: 'Tailwind CSS',
+    icon: <SiTailwindcss />,
+    type: 'Front-End',
+    color: 'sky',
+  },
+  {
+    name: 'Headless UI',
+    icon: <SiHeadlessui />,
+    type: 'Front-End',
+    color: 'sky',
+  },
+  {
+    name: 'D3.js',
+    icon: <SiD3Dotjs />,
+    type: 'Front-End',
+    color: 'black',
+  },
+  {
+    name: 'React Native',
+    icon: <FaReact />,
+    type: 'Front-End',
+    color: 'sky',
+  },
+] as {
+  name: string;
+  icon: React.ReactNode;
+  type: string;
+  color: CardColor;
+}[];
+
+const SkillCard = ({
+  name,
+  icon,
+  color,
+  className,
+  ...props
+}: {
+  name: string;
+  icon: React.ReactNode;
+  className?: string;
+  color: CardColor;
+}) => (
+  <Card
+    {...props}
+    className={twMerge(
+      [
+        'flex',
+        'h-24',
+        'w-24',
+        'flex-col',
+        'items-center',
+        'justify-center',
+        'text-center',
+        'gap-2',
+        'px-2',
+        'rounded-full',
+        'lg:h-28',
+        'lg:w-28',
+        'lg:px-4',
+      ],
+      className,
+    )}
+    color={color as CardColor}
+  >
+    <div className="text-4xl lg:text-5xl">{icon}</div>
+    <span className="text-xs lg:text-sm">{name}</span>
+  </Card>
+);
 
 const Tailwindnizer = ({
   children,
@@ -52,7 +280,7 @@ const Section = ({
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <section
     className={twMerge(
-      ['flex', 'w-full', 'flex-wrap', 'justify-evenly', 'gap-12'],
+      ['flex', 'w-full', 'flex-wrap', 'justify-evenly', 'gap-12', 'pb-24'],
       className,
     )}
   >
@@ -105,9 +333,9 @@ export default function Home() {
         </div>
         <Preface className="block lg:hidden" />
       </Section>
-      <Section className="block py-24 text-center">
+      <Section className="block text-center">
         <h3 className="mb-12 text-2xl font-medium">— About Me —</h3>
-        <div className="flex w-full flex-col items-center gap-4 text-justify font-extralight lg:gap-8 lg:p-12">
+        <div className="flex w-full flex-col items-center gap-4 text-justify font-extralight lg:gap-8 lg:p-12 lg:pb-0">
           <p>
             I am a Software Engineer —<b>Product Enginner</b>— with more than 8
             years of experience in Full-Stack development, and more than 3
@@ -160,6 +388,34 @@ export default function Home() {
             I am truly eager to give this experience to contribute to Tailwind
             CSS, Headless UI, and new projects comming soon.
           </p>
+        </div>
+      </Section>
+      <Section className="block text-center">
+        <h3 className="mb-12 text-2xl font-medium">— Skills —</h3>
+        <div className="flex w-full justify-center gap-24 lg:px-12">
+          <div className="inline-flex flex-1 flex-col gap-8 text-left">
+            {mainSkills.map(({ title, content }, index) => (
+              <div key={index}>
+                <h4 className="mb-2 text-xl font-medium">{title}</h4>
+                <hr />
+                <p className="my-4 text-justify text-xl font-extralight lg:text-left">
+                  {content}
+                </p>
+                <div className="my-8 flex w-full flex-wrap justify-center gap-8 lg:hidden">
+                  {hardSkills
+                    .filter(({ type }) => type === title)
+                    .map((props, index) => (
+                      <SkillCard key={index} {...props} />
+                    ))}
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="hidden flex-1 flex-wrap items-center justify-center gap-8 lg:inline-flex">
+            {hardSkills.map((props, index) => (
+              <SkillCard key={index} {...props} />
+            ))}
+          </div>
         </div>
       </Section>
     </main>
