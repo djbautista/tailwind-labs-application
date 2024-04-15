@@ -1,5 +1,6 @@
 import React from 'react';
 import { twMerge } from 'tailwind-merge';
+import { Slot } from '@/components/Slot';
 
 const variants = {
   primary: 'bg-primary-500/20 shadow-primary-500',
@@ -23,6 +24,7 @@ const colorsClassNames = {
 interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   variant?: keyof typeof variants;
   color?: CardColor;
+  asChild?: boolean;
 }
 
 const Card: React.FC<CardProps> = ({
@@ -30,10 +32,15 @@ const Card: React.FC<CardProps> = ({
   children,
   color,
   variant = 'primary',
+  asChild = false,
   ...rest
 }) => {
+  const Comp = asChild ? Slot : 'div';
+
+  console.log('Comp', Comp);
+
   return (
-    <div
+    <Comp
       className={twMerge(
         ['bg-white', 'shadow-lg', 'rounded-lg', 'p-4'],
         variants[variant],
@@ -43,7 +50,7 @@ const Card: React.FC<CardProps> = ({
       {...rest}
     >
       {children}
-    </div>
+    </Comp>
   );
 };
 
