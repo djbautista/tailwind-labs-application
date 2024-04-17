@@ -490,6 +490,7 @@ export default function Home() {
           {projects.map(
             ({ description, role, company, year, minWidth }, index) => (
               <Card
+                key={index}
                 variant={index % 2 === 0 ? 'primary' : 'secondary'}
                 className={twMerge([
                   'w-full',
@@ -519,7 +520,7 @@ export default function Home() {
       </Section>
       <Section className="block text-center">
         <h3 className="mb-12 text-2xl font-medium">
-          — Teams I've Led and Loved —
+          — Teams I&apos;ve Led and Loved —
         </h3>
       </Section>
       <Section className="block text-center">
