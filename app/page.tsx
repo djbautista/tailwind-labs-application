@@ -524,6 +524,14 @@ export default function Home() {
           )}
         </div>
       </Section>
+      <Section className="block text-center">
+        <h3 className="mb-12 text-2xl font-medium">
+          — Teams I&apos;ve Led and Loved —
+        </h3>
+      </Section>
+      <Section className="block text-center">
+        <h3 className="mb-12 text-2xl font-medium">— My two cents in Dev —</h3>
+      </Section>
     </main>
   );
 }
