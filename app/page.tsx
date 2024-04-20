@@ -28,6 +28,7 @@ import {
   SiTypescript,
 } from 'react-icons/si';
 import Link from 'next/link';
+import Typography from '@/components/Typography';
 
 const silkscreen = Silkscreen({ weight: ['700'], subsets: ['latin'] });
 
@@ -358,26 +359,27 @@ export default function Home() {
   return (
     <main className="min-h-screen flex-col p-12 text-neutral-50">
       <Section>
-        <div className="flex flex-col gap-8 lg:gap-12 lg:py-8">
+        <div className="flex w-full flex-col items-start gap-8 lg:w-auto lg:gap-12 lg:py-8">
           <div className="w-full">
             <h3 className="mb-2 text-2xl font-light lg:mb-4 lg:text-4xl xl:mb-6 xl:text-5xl">
               Hi, I&apos;m
             </h3>
-            <h1
+            <Typography
+              as="h1"
               className={classNames([
-                'mb-4 text-5xl lg:mb-6 xl:mb-8 xl:text-6xl',
+                'mb-4 min-h-24 w-full text-5xl md:w-full lg:mb-6 lg:min-w-[660px] xl:mb-8 xl:text-6xl',
                 silkscreen.className,
               ])}
             >
               DAVID BAUTISTA
-            </h1>
+            </Typography>
             <h2 className="text-xl font-extralight lg:text-2xl xl:text-3xl">
               YOUR NEXT STAFF SOFTWARE ENGINEER
             </h2>
           </div>
           <div className="flex gap-8">
             <Button>
-              <span>Say Hello</span>
+              <span>Say Hi</span>
               <Send />
             </Button>
             <Link href="/resume">
@@ -392,7 +394,7 @@ export default function Home() {
           </Link>
         </div>
         <div className="relative h-fit w-full max-w-lg lg:flex-1 xl:max-w-xl">
-          <div className="absolute bottom-20 left-20 right-20 top-20 z-0 rounded-full bg-neutral-900 neon-secondary"></div>
+          <div className="absolute bottom-20 left-20 right-20 top-20 z-0 rounded-full bg-neutral-900 neon-secondary" />
           <Image
             className="relative z-10 w-full object-contain"
             src="/myself.png"

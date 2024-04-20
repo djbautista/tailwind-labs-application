@@ -14,7 +14,7 @@ export default function Home() {
         </Button>
       </Link>
       <div className="text-center">
-        <div className="relative z-0 mx-auto -mb-4 h-[160px] w-[160px] rounded-full bg-transparent shadow-inner shadow-xl shadow-secondary/50 lg:h-[200px] lg:w-[200px]">
+        <div className="relative z-0 mx-auto -mb-4 h-[160px] w-[160px] rounded-full bg-transparent shadow-inner shadow-xl shadow-secondary/30 lg:h-[200px] lg:w-[200px]">
           <Image
             src="/resume.png"
             alt="Home hero"

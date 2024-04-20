@@ -3,15 +3,33 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { FiArrowLeft } from 'react-icons/fi';
-import classNames from 'classnames';
 
 export default function Tailwind() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center gap-8 bg-neutral p-12 text-neutral-50">
+      <Link href="/" className="fixed left-8 top-8">
+        <Button className="bg-neutral lg:demoted" variant="secondary">
+          <FiArrowLeft />
+          <span className="hidden text-lg font-medium md:block">GO BACK</span>
+        </Button>
+      </Link>
       <div className="text-center">
+        <div className="relative">
+          <div className="absolute z-0 flex h-full w-full items-center justify-center">
+            <div className="h-full max-h-[120px] w-full max-w-[120px] rounded-full bg-neutral-900 object-contain neon-primary lg:max-h-[280px] lg:max-w-[280px]" />
+          </div>
+          <Image
+            src="/floating-home.png"
+            width={400}
+            height={400}
+            alt="Home hero"
+            className="relative z-10 mx-auto max-h-[200px] w-full max-w-[200px] object-contain lg:max-h-[400px] lg:max-w-[400px]"
+          />
+        </div>
         <h1 className="mb-12 text-3xl font-bold lg:text-5xl">
           Why Tailwind Feels Like Home
         </h1>
+
         <article className="mx-auto mb-12 flex max-w-2xl flex-col gap-8 text-justify text-lg font-light text-neutral-200 lg:text-xl">
           <p>
             Hey Tailwind Labs Team, writing this section you from the land of
@@ -45,13 +63,6 @@ export default function Tailwind() {
             a week—yeah, a week—and we crossed the finish line with time to
             spare.
           </p>
-          <Image
-            src="/home.png"
-            width={300}
-            height={300}
-            alt="Home hero"
-            className="mx-auto max-h-[300px] w-full max-w-[300px]"
-          />
           <p>
             But why Tailwind Labs? Well, your tools are the kind that make
             developers&apos; lives a breeze, and I want in on that action.
@@ -70,15 +81,8 @@ export default function Tailwind() {
             something I want to become an expert in, and I know I can do it with
             your boost.
           </p>
+          <p className="text-right">― David.</p>
         </article>
-        <div className="flex justify-center space-x-4">
-          <Link href="/">
-            <Button className="demoted" variant="secondary">
-              <FiArrowLeft />
-              <span className="font-medium">GO BACK</span>
-            </Button>
-          </Link>
-        </div>
       </div>
     </main>
   );
