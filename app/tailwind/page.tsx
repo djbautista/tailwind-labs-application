@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { FiArrowLeft } from 'react-icons/fi';
+import classNames from 'classnames';
 
 export default function Tailwind() {
   return (
@@ -11,13 +12,6 @@ export default function Tailwind() {
         <h1 className="mb-12 text-3xl font-bold lg:text-5xl">
           Why Tailwind Feels Like Home
         </h1>
-        <Image
-          src="/home.png"
-          width={400}
-          height={400}
-          alt="Home hero"
-          className="mx-auto max-h-[400px] w-full max-w-[400px]"
-        />
         <article className="mx-auto mb-12 flex max-w-2xl flex-col gap-8 text-justify text-lg font-light text-neutral-200 lg:text-xl">
           <p>
             Hey Tailwind Labs Team, writing this section you from the land of
@@ -51,6 +45,13 @@ export default function Tailwind() {
             a week—yeah, a week—and we crossed the finish line with time to
             spare.
           </p>
+          <Image
+            src="/home.png"
+            width={300}
+            height={300}
+            alt="Home hero"
+            className="mx-auto max-h-[300px] w-full max-w-[300px]"
+          />
           <p>
             But why Tailwind Labs? Well, your tools are the kind that make
             developers&apos; lives a breeze, and I want in on that action.

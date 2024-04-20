@@ -7,13 +7,6 @@ import { FiArrowLeft } from 'react-icons/fi';
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center gap-8 bg-neutral p-12 text-neutral-50">
-      <Image
-        src="/download.png"
-        width={200}
-        height={200}
-        alt="Download hero"
-        className="max-h-[200px] w-full max-w-[200px]"
-      />
       <div className="text-center">
         <h1 className="mb-2 text-5xl font-bold">MY AWESOME RESUME</h1>
         <p className="mb-12 text-xl text-neutral-200">

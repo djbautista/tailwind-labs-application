@@ -27,6 +27,7 @@ import {
   SiTailwindcss,
   SiTypescript,
 } from 'react-icons/si';
+import Link from 'next/link';
 
 const silkscreen = Silkscreen({ weight: ['700'], subsets: ['latin'] });
 
@@ -331,7 +332,6 @@ const Preface = ({ className }: React.HTMLAttributes<HTMLDivElement>) => (
     variant="secondary"
   >
     <p className="text-md text-italic max-w-[500px] font-light leading-6">
-      I&apos;m applying to <Tailwindnizer>Tailwind Labs.</Tailwindnizer> because
       I truly feel in my heart that there&apos;s a spot for me here, a space
       where I could share my creativity and quick-thinking, fueled by the
       passion and unique skills I&apos;ve honed so far.
@@ -356,7 +356,7 @@ const Section = ({
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex-col bg-neutral p-12 text-neutral-50">
+    <main className="min-h-screen flex-col p-12 text-neutral-50">
       <Section>
         <div className="flex flex-col gap-8 lg:gap-12 lg:py-8">
           <div className="w-full">
@@ -380,12 +380,16 @@ export default function Home() {
               <span>Say Hello</span>
               <Send />
             </Button>
-            <Button className="demoted" variant="secondary">
-              <span>My Work</span>
-              <Terminal />
-            </Button>
+            <Link href="/resume">
+              <Button className="demoted" variant="secondary">
+                <span>Resume</span>
+                <Terminal />
+              </Button>
+            </Link>
           </div>
-          <Preface className="hidden lg:flex" />
+          <Link href="/tailwind">
+            <Preface className="hidden lg:flex" />
+          </Link>
         </div>
         <div className="relative h-fit w-full max-w-lg lg:flex-1 xl:max-w-xl">
           <div className="absolute bottom-20 left-20 right-20 top-20 z-0 rounded-full bg-neutral-900 neon-secondary"></div>

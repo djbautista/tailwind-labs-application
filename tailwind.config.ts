@@ -89,6 +89,30 @@ const config: Config = {
       }
       addUtilities(neonUtilities);
     }),
+    plugin(({ theme, addUtilities }) => {
+      const patternUtilities = {} as Record<
+        string,
+        {
+          backgroundColor: string;
+          backgroundImage: string;
+          backgroundSize: string;
+        }
+      >;
+
+      const colors = theme('colors');
+
+      for (const color in colors) {
+        if (typeof colors[color] === 'object') {
+          patternUtilities[`.bg-boxes-${color}`] = {
+            backgroundColor: colors[color][950],
+            backgroundImage: `linear-gradient(${colors[color][900]} 0.1rem, transparent 0.1rem), linear-gradient(to right, ${colors[color][900]} 0.1rem, ${colors[color][950]} 0.1rem)`,
+            backgroundSize: '0.5rem 0.5rem',
+          };
+        }
+      }
+
+      addUtilities(patternUtilities);
+    }),
   ],
 };
 export default config;
