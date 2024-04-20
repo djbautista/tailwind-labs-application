@@ -10,10 +10,12 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      boxShadow: {
+        neumorphism:
+          'inset 20px 20px 60px #bebebe, inset -20px -20px 60px #ffffff',
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       colors: {
         primary: { ...colors.sky, DEFAULT: colors.sky[500] },
