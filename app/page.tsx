@@ -406,7 +406,7 @@ export default function Home() {
         <Preface className="block lg:hidden" />
       </Section>
       <Section className="flex-col items-center">
-        <h3 className="mb-12 text-2xl font-medium">— About Me —</h3>
+        <h3 className="mb-4 text-2xl font-medium">— About Me —</h3>
         <div className="flex w-full max-w-6xl flex-col items-center justify-center gap-4 bg-gradient-radial from-primary/10 from-10% to-transparent to-70% text-center text-justify font-extralight lg:gap-8 lg:p-12 lg:pb-0">
           <p>
             I am a Software Engineer —<b>Product Enginner</b>— with more than 8
@@ -523,14 +523,6 @@ export default function Home() {
             ),
           )}
         </div>
-      </Section>
-      <Section className="block text-center">
-        <h3 className="mb-12 text-2xl font-medium">
-          — Teams I&apos;ve Led and Loved —
-        </h3>
-      </Section>
-      <Section className="block text-center">
-        <h3 className="mb-12 text-2xl font-medium">— My two cents in Dev —</h3>
       </Section>
     </main>
   );
